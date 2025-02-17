@@ -1,0 +1,25 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+T = np.arange(0, 20, 2)
+I_ideal = np.array([])
+I_ideal.resize(10)
+for k in range(0, 10):
+    I_ideal[k]=4.3/(k+1)
+I_ACS550 = np.array([1.9, 0.14, 1.35, 0.9, 0.06, 0.25, 0.15, 0.03, 0.11, 0.07])
+plt.plot(T, I_ideal, 'o-b', ms = 2, lw = 1, label = 'Ideal')
+plt.plot(T, I_ACS550, 'o-r', ms = 2, lw = 1, label = 'ACS550')
+plt.plot(0, np.max(I_ideal), 'o-g', ms = 10, lw = 1, label = 'Ideal max')
+plt.plot(0, np.max(I_ACS550), 'o-m', ms = 10, lw = 1, label = 'ACS550 экстр.')
+plt.axvline(5)
+plt.axvline(11)
+plt.plot(6, 0.882, 'o-m', ms=10)
+plt.plot(12, 0.162, 'o-m', ms=10)
+plt.plot(2, 0.11, 'o-m', ms=10)
+plt.plot(8, 0.06, 'o-m', ms=10)
+plt.plot(14, 0.035, 'o-m', ms=10)
+plt.legend()
+plt.grid()
+plt.ylabel("I, А")
+plt.xlabel("№ гармоник")
+plt.show()
